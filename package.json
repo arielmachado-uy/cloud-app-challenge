@@ -1,0 +1,12 @@
+{
+  "name": "cloud-app-challenge",
+  "version": "1.0.0",
+  "description": "CloudApp take-home challenge",
+  "main": "index.js",
+  "repository": "https://github.com/arielmachado-uy/cloud-app-challenge.git",
+  "author": "Ariel Machado <arielma77@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cypress": "9.7.0"
+  }
+}
