@@ -45,12 +45,12 @@ describe('Sign Up automation suite', () => {
   });
 
   it('Sign Up - Manual Sign Up (Happy path)', () => {
-    // Get a random email every time
-    const uuid = () => Cypress._.random(0, 1e8)
-    const id = uuid();
-    const randomEmail = `user${id}@mailinator.com`
 
-    signUp.getEmailInput().type(randomEmail);
+    // Get a random email from custom command
+    cy.generateRandomEmail()
+      .then(randomEmail => {
+        signUp.getEmailInput().type(randomEmail);
+      })
     signUp.getPasswordInput().type('Just4Pass');
     signUp.getSignUpButton().click();
 
