@@ -1,4 +1,5 @@
 import { Common } from '../fixtures/page-objects/common-page';
+import { Onboarding } from '../fixtures/page-objects/onboarding-page';
 import { SignUp } from '../fixtures/page-objects/sign-up-page';
 
 // This piece of code was added because of an error in the application
@@ -11,13 +12,14 @@ describe('Sign Up automation suite', () => {
 
   const signUp = new SignUp();
   const common = new Common();
+  const onboarding = new Onboarding();
 
   beforeEach(function () {
     // Visit sign up page using base url + page name
     cy.visit('/signup');
   });
 
-  it('Sign Up page smoke validations', () => {
+  it('Sign Up page - Smoke validations', () => {
     // Validate Sign Up page url
     cy.url().should('contains', 'signup');
 
@@ -42,7 +44,7 @@ describe('Sign Up automation suite', () => {
     signUp.getSignInLink().should('be.visible');
   });
 
-  it('Sign Up - Manual Sign Up', () => {
+  it('Sign Up - Manual Sign Up (Happy path)', () => {
     // Get a random email every time
     const uuid = () => Cypress._.random(0, 1e8)
     const id = uuid();
@@ -52,9 +54,25 @@ describe('Sign Up automation suite', () => {
     signUp.getPasswordInput().type('Just4Pass');
     signUp.getSignUpButton().click();
 
+    // Vaidate toast message
+    signUp.validateSignUpToastMessage('Account created successfully');
+
     // Validate Dashboard page url
     cy.url().should('contains', 'onboarding/downloads');
 
-    //TODO: Add more validations
+    // Onboarding page element validation
+    onboarding.getPageLogo().should('be.visible');
+
+    // Validate page tabs
+    onboarding.validatePageTabs(['Invite Members', 'Download CloudApp']);
+
+    // Validate Onboarding Content inside both tabs
+    // Invite Members tab
+    onboarding.getPageTab('Invite Members').click();
+    onboarding.getOnboardingContent().should('be.visible');
+
+    // Download CloudApp tab
+    onboarding.getPageTab('Download CloudApp').click();
+    onboarding.getOnboardingContent().should('be.visible');
   });
 })

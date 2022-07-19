@@ -1,3 +1,5 @@
+import { Common } from '../page-objects/common-page';
+const common = new Common();
 export class SignUp {
 
   getPageLogo() {
@@ -50,5 +52,13 @@ export class SignUp {
 
   getSignInLink() {
     return cy.get('a[href="/login"]');
+  }
+
+  validateSignUpToastMessage(message) {
+    common.getToastMessage()
+      .then($element => {
+        const text = $element.text();
+        expect(text).to.be.eq(message);
+      });
   }
 }
