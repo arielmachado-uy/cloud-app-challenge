@@ -1,4 +1,3 @@
-/* global Cypress cy */
 /// <reference types="cypress" />
 
 Cypress.Commands.add('apiSignUp', (email, password) => {
