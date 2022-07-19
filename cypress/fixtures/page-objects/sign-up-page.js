@@ -23,8 +23,20 @@ export class SignUp {
       .contains('or sign up with email');
   }
 
+  getEmailInput() {
+    return cy.get('#email');
+  }
+
+  getPasswordInput() {
+    return cy.get('#password');
+  }
+
   getPasswordConditionsText() {
     return cy.get('#text-password-requirements').should('be.visible');
+  }
+
+  getSignUpButton() {
+    return cy.get('input[type="submit"]');
   }
 
   getSignUpWithSSOLink() {
