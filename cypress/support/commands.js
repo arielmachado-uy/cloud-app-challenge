@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import 'cypress-file-upload';
 
 Cypress.Commands.add('apiSignUp', (email, password) => {
   cy.request({

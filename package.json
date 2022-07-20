@@ -6,11 +6,14 @@
   "repository": "https://github.com/arielmachado-uy/cloud-app-challenge.git",
   "author": "Ariel Machado <arielma77@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "cypress": "9.7.0"
-  },
   "scripts": {
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
+  },
+  "dependencies": {
+    "cypress": "9.7.0"
+  },
+  "devDependencies": {
+    "cypress-file-upload": "^5.0.8"
   }
 }

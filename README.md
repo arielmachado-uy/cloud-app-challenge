@@ -54,3 +54,5 @@ When running the test cases using `runnner-mode`
     - Cypress.on('uncaught:exception', (err, runnable) => {
         return false;
       });
+
+3. There also other test cases showing the same errors, they are not related with the code of the test nor cypress framework

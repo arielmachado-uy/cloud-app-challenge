@@ -44,7 +44,7 @@ describe('Sign Up automation suite', () => {
     signUp.getSignInLink().should('be.visible');
   });
 
-  it('Sign Up - Manual Sign Up (Happy path)', () => {
+  it('Sign Up - Manual Sign Up', () => {
 
     // Get a random email from custom command
     cy.generateRandomEmail()
