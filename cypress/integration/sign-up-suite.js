@@ -51,7 +51,7 @@ describe('Sign Up automation suite', () => {
       .then(randomEmail => {
         signUp.getEmailInput().type(randomEmail);
       })
-    signUp.getPasswordInput().type('Just4Pass');
+    signUp.getPasswordInput().type('S0mething');
     signUp.getSignUpButton().click();
 
     // Vaidate toast message
