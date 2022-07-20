@@ -57,6 +57,7 @@ describe('Sign Up automation suite', () => {
     // Vaidate toast message
     signUp.validateSignUpToastMessage('Account created successfully');
 
+    // Basic validations
     // Validate Dashboard page url
     cy.url().should('contains', 'onboarding/downloads');
 
